@@ -1,6 +1,6 @@
 local cfg = {}
 
-cfg.locale = 'ru'
+cfg.locale = 'en'
 
 cfg.rotations = {
   {-72.501, 79.501, -150.871},
@@ -317,6 +317,11 @@ cfg.texts = {
     collected_all = 'Ты собрал все коллекционные фигурки!'
   },
 
+  ['tr'] = {
+    collected = 'Figur alindi.',
+    collected_all = 'Butun figurleri basari ile buldun!'
+  },	
+	
   ['en'] = {
     collected = 'Collectible Figure collected',
     collected_all = 'You have collected all the collectible figures!'
@@ -362,6 +367,7 @@ AddEventHandler('halloween-quest:takePuckup', function(pickupId)
       count = 0,
       pickups = {}
     }
+    xPlayer.addMoney(1000)
   end
 
   stats[license].pickups[pickupId] = true
@@ -398,4 +404,5 @@ end)
 -- Example reward event
 AddEventHandler('halloween-quest:collectedAllFigures', function(playerSource)
   print('Player collect all figures: '..playerSource)
+  xPlayer.addMoney(50000)
 end)
